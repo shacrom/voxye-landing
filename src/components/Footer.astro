@@ -1,0 +1,79 @@
+---
+import { CONTACT_EMAIL, CONTACT_PHONE } from '../consts';
+
+const currentYear = new Date().getFullYear();
+
+const productLinks = [
+  { label: 'Funcionalidades', href: '#funcionalidades' },
+  { label: 'Proceso de trabajo', href: '#proceso' },
+  { label: 'Beneficios', href: '#beneficios' },
+  { label: 'Preguntas frecuentes', href: '#faq' },
+];
+
+const legalLinks = [
+  { label: 'Aviso legal', href: '#' },
+  { label: 'Politica de privacidad', href: '#' },
+  { label: 'Politica de cookies', href: '#' },
+];
+---
+
+<footer class="bg-primary text-white pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+      <!-- Logo & Description -->
+      <div>
+        <a href="#" class="flex items-center gap-2 mb-4">
+          <span class="w-9 h-9 bg-accent rounded-lg flex items-center justify-center font-heading font-bold text-primary text-lg">V</span>
+          <span class="font-heading font-bold text-xl">Voxye</span>
+        </a>
+        <p class="text-sm text-white/60 leading-relaxed">
+          ERP especializado para empresas de reformas. Gestiona todo tu negocio desde una sola plataforma.
+        </p>
+      </div>
+
+      <!-- Producto -->
+      <div>
+        <h4 class="font-heading font-semibold text-sm uppercase tracking-wider text-accent mb-4">Producto</h4>
+        <ul class="space-y-2.5">
+          {productLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/60 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h4 class="font-heading font-semibold text-sm uppercase tracking-wider text-accent mb-4">Legal</h4>
+        <ul class="space-y-2.5">
+          {legalLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-sm text-white/60 hover:text-white transition-colors">{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contacto -->
+      <div>
+        <h4 class="font-heading font-semibold text-sm uppercase tracking-wider text-accent mb-4">Contacto</h4>
+        <ul class="space-y-2.5">
+          <li>
+            <a href={`mailto:${CONTACT_EMAIL}`} class="text-sm text-white/60 hover:text-white transition-colors">{CONTACT_EMAIL}</a>
+          </li>
+          <li>
+            <a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`} class="text-sm text-white/60 hover:text-white transition-colors">{CONTACT_PHONE}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom -->
+    <div class="pt-8 text-center">
+      <p class="text-sm text-white/40">
+        &copy; {currentYear} Voxye. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,25 @@
+---
+const stats = [
+  { value: '14', label: 'Modulos disponibles' },
+  { value: '25+', label: 'Graficas y KPIs' },
+  { value: '5', label: 'Tipos de documento' },
+  { value: '100%', label: 'Cloud y seguro' },
+];
+---
+
+<section class="py-16 lg:py-20 bg-primary">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      {stats.map((stat) => (
+        <div class="text-center fade-up">
+          <div class="font-heading font-extrabold text-4xl sm:text-5xl text-accent mb-2">
+            {stat.value}
+          </div>
+          <div class="text-white/60 text-sm font-medium">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

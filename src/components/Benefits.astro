@@ -1,0 +1,71 @@
+---
+const benefits = [
+  {
+    title: 'Ahorra tiempo en cada presupuesto',
+    desc: 'El editor modular de Voxye te permite crear presupuestos profesionales en minutos. Con vista previa PDF en tiempo real, lo que ves es lo que tu cliente recibe.',
+    highlights: ['Editor modular de partidas', 'Vista previa PDF en tiempo real', 'Plantillas reutilizables'],
+  },
+  {
+    title: 'Control total de tu negocio',
+    desc: 'Dashboard con mas de 25 visualizaciones y KPIs. Conoce el estado de cada proyecto, controla gastos y toma decisiones basadas en datos reales.',
+    highlights: ['25+ graficas interactivas', 'KPIs en tiempo real', 'Informes por proyecto y periodo'],
+  },
+  {
+    title: 'Todo conectado, nada se pierde',
+    desc: 'Desde el primer presupuesto hasta la ultima factura, todo queda registrado y vinculado. Trazabilidad completa con auditoria de cada accion.',
+    highlights: ['Trazabilidad completa', 'Auditoria de acciones', 'Documentos centralizados'],
+  },
+];
+---
+
+<section id="beneficios" class="py-20 lg:py-28 bg-surface">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-accent font-semibold text-sm uppercase tracking-wider">Beneficios</span>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-text-primary mt-3 mb-4">
+        Diseñado para empresas como la tuya
+      </h2>
+      <p class="text-text-secondary text-lg">
+        Cada funcionalidad esta pensada para resolver problemas reales del sector de reformas.
+      </p>
+    </div>
+
+    <!-- Benefits -->
+    <div class="space-y-20">
+      {benefits.map((benefit, i) => (
+        <div class={`flex flex-col lg:flex-row items-center gap-12 lg:gap-16 fade-up ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+          {/* Text */}
+          <div class="flex-1">
+            <h3 class="font-heading font-bold text-2xl sm:text-3xl text-text-primary mb-4">{benefit.title}</h3>
+            <p class="text-text-secondary text-lg leading-relaxed mb-6">{benefit.desc}</p>
+            <ul class="space-y-3">
+              {benefit.highlights.map((h) => (
+                <li class="flex items-center gap-3">
+                  <svg class="w-5 h-5 text-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span class="text-text-primary font-medium">{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Placeholder image */}
+          <div class="flex-1 w-full">
+            <div class="bg-surface-alt rounded-2xl border border-gray-100 aspect-video flex items-center justify-center">
+              <div class="text-center p-8">
+                <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                  </svg>
+                </div>
+                <p class="text-text-secondary text-sm">Captura de pantalla</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

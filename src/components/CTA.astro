@@ -1,0 +1,36 @@
+---
+import { CONTACT_EMAIL } from '../consts';
+---
+
+<section id="contacto" class="py-20 lg:py-28 bg-primary">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+    <h2 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-text-inverse mb-6">
+      ¿Listo para digitalizar tu empresa de reformas?
+    </h2>
+    <p class="text-white/60 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+      Solicita una demo gratuita y descubre como Voxye puede transformar la gestion de tu negocio.
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+      <a
+        href={`mailto:${CONTACT_EMAIL}?subject=Solicitud%20de%20Demo%20Gratuita`}
+        class="bg-accent hover:bg-accent-light text-primary font-semibold px-8 py-3.5 rounded-lg transition-colors text-base"
+      >
+        Solicitar Demo Gratuita
+      </a>
+      <a
+        href={`mailto:${CONTACT_EMAIL}`}
+        class="border border-white/20 hover:border-white/40 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base"
+      >
+        Contactar
+      </a>
+    </div>
+
+    <!-- Email -->
+    <p class="text-white/40 text-sm">
+      O escribenos directamente a
+      <a href={`mailto:${CONTACT_EMAIL}`} class="text-accent hover:text-accent-light transition-colors">{CONTACT_EMAIL}</a>
+    </p>
+  </div>
+</section>

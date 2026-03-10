@@ -1,0 +1,57 @@
+---
+const screens = [
+  { title: 'Dashboard principal', desc: 'Vista general con KPIs y graficas' },
+  { title: 'Editor de presupuestos', desc: 'Creacion modular con preview PDF' },
+  { title: 'Gestion de contratos', desc: 'Contratos generados automaticamente' },
+];
+---
+
+<section class="py-20 lg:py-28 bg-surface-alt">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-accent font-semibold text-sm uppercase tracking-wider">La plataforma</span>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-text-primary mt-3 mb-4">
+        Una interfaz pensada para profesionales
+      </h2>
+      <p class="text-text-secondary text-lg">
+        Diseñada para pantallas grandes, optimizada para el trabajo diario en oficina.
+      </p>
+    </div>
+
+    <!-- Screenshots Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-children">
+      {screens.map((screen) => (
+        <div class="fade-up">
+          <div class="bg-surface rounded-2xl border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            {/* Placeholder screen */}
+            <div class="aspect-video bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
+              <div class="text-center">
+                <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                  </svg>
+                </div>
+                <p class="text-text-secondary text-xs">Proximamente</p>
+              </div>
+            </div>
+            <div class="p-5">
+              <h3 class="font-heading font-semibold text-text-primary mb-1">{screen.title}</h3>
+              <p class="text-text-secondary text-sm">{screen.desc}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Note about screen size -->
+    <div class="mt-10 text-center fade-up">
+      <div class="inline-flex items-center gap-2 bg-accent/5 border border-accent/20 rounded-full px-5 py-2">
+        <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span class="text-sm text-text-secondary">Optimizado para pantallas de 27" o superior</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,61 @@
+---
+const faqs = [
+  {
+    q: '¿Necesito instalar algo?',
+    a: 'No. Voxye es una aplicacion 100% web. Solo necesitas un navegador actualizado para acceder desde cualquier lugar.',
+  },
+  {
+    q: '¿Que tipo de pantalla necesito?',
+    a: 'Voxye esta diseñado para aprovechar al maximo pantallas amplias. Recomendamos un monitor de al menos 27 pulgadas para la mejor experiencia de uso.',
+  },
+  {
+    q: '¿Puedo gestionar varias tiendas?',
+    a: 'Si. Voxye incluye gestion multi-tienda, lo que te permite administrar multiples puntos de venta de forma independiente desde una sola cuenta.',
+  },
+  {
+    q: '¿Mis datos estan seguros?',
+    a: 'Absolutamente. Cada empresa tiene sus datos completamente aislados. Ademas, contamos con sistema de roles, permisos y auditoria de trazabilidad completa.',
+  },
+  {
+    q: '¿Se pueden enviar documentos por email?',
+    a: 'Si. Puedes enviar presupuestos, contratos, facturas y pedidos directamente por email con el PDF adjunto, todo desde la propia plataforma.',
+  },
+  {
+    q: '¿Puedo personalizar los PDFs con mi logo?',
+    a: 'Si. Todos los documentos generados por Voxye incluyen tu logotipo y los datos de tu empresa. La imagen de marca es importante.',
+  },
+  {
+    q: '¿Ofreceis formacion?',
+    a: 'Si. Ofrecemos formacion personalizada para tu equipo durante el proceso de onboarding y soporte continuo para resolver cualquier duda.',
+  },
+];
+---
+
+<section id="faq" class="py-20 lg:py-28 bg-surface-alt">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center mb-16 fade-up">
+      <span class="text-accent font-semibold text-sm uppercase tracking-wider">FAQ</span>
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-text-primary mt-3 mb-4">
+        Preguntas frecuentes
+      </h2>
+    </div>
+
+    <!-- Accordion -->
+    <div class="space-y-4 stagger-children">
+      {faqs.map((faq) => (
+        <details class="group bg-surface rounded-xl border border-gray-100 overflow-hidden fade-up">
+          <summary class="flex items-center justify-between cursor-pointer p-6 font-heading font-semibold text-text-primary hover:text-accent transition-colors list-none">
+            <span>{faq.q}</span>
+            <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </summary>
+          <div class="px-6 pb-6 text-text-secondary leading-relaxed">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
