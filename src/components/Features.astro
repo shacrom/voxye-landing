@@ -58,12 +58,12 @@ const features = [
 ];
 ---
 
-<section id="funcionalidades" class="py-20 lg:py-28 bg-surface-alt">
+<section id="funcionalidades" class="py-24 lg:py-32 bg-surface-alt">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
       <span class="text-accent font-semibold text-sm uppercase tracking-wider">Funcionalidades</span>
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl text-text-primary mt-3 mb-4">
+      <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight text-text-primary mt-3 mb-4">
         Todo lo que necesitas para gestionar tu empresa
       </h2>
       <p class="text-text-secondary text-lg">
@@ -74,7 +74,7 @@ const features = [
     <!-- Features Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
       {features.map((feature) => (
-        <div class="bg-surface rounded-xl p-6 border border-gray-100 hover:border-accent/30 hover:shadow-lg transition-all duration-300 group fade-up">
+        <div class="bg-surface/50 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-accent/30 hover:shadow-lg transition-all duration-300 group fade-up">
           <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
             <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <Fragment set:html={feature.icon} />
