@@ -1,4 +1,6 @@
 ---
+import logoColor from '../assets/SVG/Voxye_Color.svg';
+
 const navLinks = [
   { label: 'Funcionalidades', href: '#funcionalidades' },
   { label: 'Proceso', href: '#proceso' },
@@ -14,9 +16,8 @@ const navLinks = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-2 group">
-        <span class="w-9 h-9 bg-accent-gradient rounded-lg flex items-center justify-center font-heading font-bold text-primary text-lg transition-transform group-hover:scale-105">V</span>
-        <span class="font-heading font-bold text-xl text-text-inverse tracking-tight">Voxye</span>
+      <a href="#" class="flex items-center group">
+        <img src={logoColor.src} alt="Voxye" class="h-8 w-auto transition-transform group-hover:scale-105" />
       </a>
 
       <!-- Desktop Nav -->

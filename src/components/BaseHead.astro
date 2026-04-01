@@ -26,6 +26,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 <meta property="og:url" content={SITE_URL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+<meta property="og:image" content={`${SITE_URL}/og-image.png`} />
 <meta property="og:locale" content="es_ES" />
 <meta property="og:site_name" content="Voxye" />
 
@@ -33,6 +34,7 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={`${SITE_URL}/og-image.png`} />
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
