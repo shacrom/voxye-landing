@@ -74,7 +74,7 @@ const features = [
     <!-- Features Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
       {features.map((feature) => (
-        <div class="bg-surface/50 backdrop-blur-sm rounded-xl p-6 border border-gray-100 hover:border-accent/30 hover:shadow-lg transition-all duration-300 group fade-up">
+        <div class="bg-surface rounded-xl p-6 border border-gray-100 hover:border-accent/30 hover:shadow-lg transition-[border-color,box-shadow] duration-300 group fade-up">
           <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
             <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <Fragment set:html={feature.icon} />

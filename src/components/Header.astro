@@ -11,7 +11,7 @@ const navLinks = [
 
 <header
   id="main-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  class="fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-300"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 lg:h-20">
@@ -43,6 +43,8 @@ const navLinks = [
         id="mobile-menu-btn"
         class="md:hidden text-white p-2"
         aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />

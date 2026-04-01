@@ -7,6 +7,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://voxye.es',
   output: 'static',
+  compressHTML: true,
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()],
