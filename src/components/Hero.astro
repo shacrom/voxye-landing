@@ -3,25 +3,29 @@
 ---
 
 <section class="relative min-h-screen flex items-center bg-primary overflow-hidden">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,168,83,0.08)_0%,_transparent_70%)]"></div>
+  <!-- Background polish -->
+  <div class="hero-ambient absolute inset-0"></div>
+  <div class="hero-grid absolute inset-0 opacity-30"></div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
     <!-- Badge -->
-    <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8">
-      <span class="w-2 h-2 bg-accent rounded-full"></span>
-      <span class="text-sm font-medium text-white/80">ERP Especializado en Reformas</span>
+    <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 shadow-2xl shadow-accent/10 backdrop-blur">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-60"></span>
+        <span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+      </span>
+      <span class="text-sm font-medium text-white/80">ERP especializado en reformas, cocinas y baños</span>
     </div>
 
     <!-- Heading -->
     <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-text-inverse leading-tight tracking-tight max-w-4xl mx-auto mb-6">
-      Digitaliza tu empresa de reformas con
-      <span class="text-accent"> Voxye</span>
+      Presupuestos, contratos y facturas proforma
+      <span class="text-accent"> sin trabajo duplicado</span>
     </h1>
 
     <!-- Subtitle -->
-    <p class="text-lg sm:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-      Gestiona presupuestos, contratos, facturas proforma y pedidos desde una sola plataforma.
+    <p class="text-lg sm:text-xl text-white/65 max-w-3xl mx-auto mb-10 leading-relaxed">
+      Voxye conecta el flujo completo de una empresa de reformas: del primer presupuesto al pedido y la factura proforma, con documentos, trazabilidad y control en una sola plataforma.
     </p>
 
     <!-- CTAs -->
@@ -30,14 +34,30 @@
         href="#contacto"
         class="bg-accent-gradient hover:opacity-90 text-primary font-semibold px-8 py-3.5 rounded-lg transition-opacity text-base"
       >
-        Solicitar Demo Gratuita
+        Solicitar demo
       </a>
       <a
         href="#funcionalidades"
         class="border border-white/20 hover:border-white/40 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base"
       >
-        Ver Funcionalidades
+        Ver funcionalidades
       </a>
+    </div>
+
+    <!-- Trust strip -->
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto text-left">
+      <div class="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur">
+        <p class="text-white font-semibold text-sm">Flujo conectado</p>
+        <p class="text-white/50 text-xs mt-1">Presupuesto → contrato → pedido → proforma.</p>
+      </div>
+      <div class="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur">
+        <p class="text-white font-semibold text-sm">Documentos centralizados</p>
+        <p class="text-white/50 text-xs mt-1">PDFs, emails y trazabilidad por proyecto.</p>
+      </div>
+      <div class="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 backdrop-blur">
+        <p class="text-white font-semibold text-sm">Demo sin compromiso</p>
+        <p class="text-white/50 text-xs mt-1">Revisión del encaje antes de migrar.</p>
+      </div>
     </div>
   </div>
 

@@ -33,6 +33,26 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
 }
 
+.hero-ambient {
+  background:
+    radial-gradient(ellipse at 50% 20%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 55%),
+    radial-gradient(ellipse at 80% 70%, color-mix(in srgb, var(--color-accent-light) 10%, transparent), transparent 45%);
+  animation: ambient-drift 12s ease-in-out infinite alternate;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-surface) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-surface) 8%, transparent) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+}
+
+@keyframes ambient-drift {
+  from { transform: scale(1); }
+  to { transform: scale(1.08) translate3d(0, -1rem, 0); }
+}
+
 /* Header scroll state */
 .header-scrolled {
   background-color: rgba(10, 15, 28, 0.95);
@@ -67,6 +87,14 @@ h1, h2, h3, h4, h5, h6 {
 .stagger-children > .fade-up:nth-child(12) { transition-delay: 660ms; }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
   .fade-up {
     opacity: 1;
     transform: none;
