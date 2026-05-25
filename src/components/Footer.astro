@@ -5,16 +5,16 @@ import logoBlanco from '../assets/SVG/Voxye_Blanco.svg';
 const currentYear = new Date().getFullYear();
 
 const productLinks = [
-  { label: 'Funcionalidades', href: '#funcionalidades' },
-  { label: 'Proceso de trabajo', href: '#proceso' },
-  { label: 'Beneficios', href: '#beneficios' },
-  { label: 'Preguntas frecuentes', href: '#faq' },
+  { label: 'Funcionalidades', href: '/#funcionalidades' },
+  { label: 'Proceso de trabajo', href: '/#proceso' },
+  { label: 'Beneficios', href: '/#beneficios' },
+  { label: 'Preguntas frecuentes', href: '/#faq' },
 ];
 
 const legalLinks = [
-  { label: 'Aviso legal', href: '#' },
-  { label: 'Política de privacidad', href: '#' },
-  { label: 'Política de cookies', href: '#' },
+  { label: 'Aviso legal', href: '/aviso-legal' },
+  { label: 'Política de privacidad', href: '/politica-privacidad' },
+  { label: 'Política de cookies', href: '/politica-cookies' },
 ];
 ---
 
@@ -23,7 +23,7 @@ const legalLinks = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
       <!-- Logo & Description -->
       <div>
-        <a href="#" class="flex items-center mb-4">
+        <a href="/" class="flex items-center mb-4">
           <img src={logoBlanco.src} alt="Voxye" class="h-8 w-auto" />
         </a>
         <p class="text-sm text-white/60 leading-relaxed">

@@ -1,5 +1,5 @@
 ---
-import { CONTACT_EMAIL } from '../consts';
+import { CONTACT_EMAIL, CONTACT_PHONE } from '../consts';
 ---
 
 <section id="contacto" class="py-24 lg:py-32 bg-primary">
@@ -17,20 +17,22 @@ import { CONTACT_EMAIL } from '../consts';
         href={`mailto:${CONTACT_EMAIL}?subject=Solicitud%20de%20Demo%20Gratuita`}
         class="bg-accent-gradient hover:opacity-90 text-primary font-semibold px-8 py-3.5 rounded-lg transition-opacity text-base"
       >
-        Solicitar Demo Gratuita
+        Escribir para una demo
       </a>
       <a
-        href={`mailto:${CONTACT_EMAIL}`}
+        href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`}
         class="border border-white/20 hover:border-white/40 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base"
       >
-        Contactar
+        Llamar ahora
       </a>
     </div>
 
     <!-- Email -->
     <p class="text-white/40 text-sm">
-      O escribenos directamente a
+      Contacto directo:
       <a href={`mailto:${CONTACT_EMAIL}`} class="text-accent hover:text-accent-light transition-colors">{CONTACT_EMAIL}</a>
+      <span class="text-white/20 mx-2">|</span>
+      <a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`} class="text-accent hover:text-accent-light transition-colors">{CONTACT_PHONE}</a>
     </p>
   </div>
 </section>

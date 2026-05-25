@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CONTACT_EMAIL } from '../consts';
+---
+
+<Layout title="Aviso legal | Voxye" description="Aviso legal de Voxye.">
+  <section class="pt-32 pb-20 bg-surface-alt">
+    <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 bg-surface rounded-2xl border border-gray-100 p-8 sm:p-10">
+      <p class="text-sm font-semibold text-accent uppercase tracking-wider mb-3">Legal</p>
+      <h1 class="font-heading font-bold text-3xl sm:text-4xl text-text-primary mb-6">Aviso legal</h1>
+      <div class="space-y-6 text-text-secondary leading-relaxed">
+        <p>Este sitio web es titularidad de [placeholder: razón social legal], con CIF/NIF [placeholder: CIF/NIF] y domicilio fiscal en [placeholder: domicilio fiscal].</p>
+        <p>Datos registrales: [placeholder: Registro Mercantil]. Email de contacto: <a class="text-accent hover:text-accent-light transition-colors" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+        <p>El acceso y uso de este sitio atribuye la condición de usuario e implica la aceptación de este aviso legal. El usuario se compromete a utilizar el sitio conforme a la ley, la buena fe y el orden público.</p>
+        <p>Los contenidos, marcas, logotipos, textos, imágenes y elementos gráficos de este sitio pertenecen a sus titulares o se utilizan con autorización. Queda prohibida su reproducción no autorizada.</p>
+        <p>Estos datos son placeholders visibles y deben sustituirse por la información legal real antes de publicar en producción.</p>
+      </div>
+    </article>
+  </section>
+</Layout>

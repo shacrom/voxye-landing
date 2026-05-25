@@ -1,5 +1,5 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL, SITE_THEME_COLOR } from '../consts';
 
 interface Props {
   title?: string;
@@ -16,12 +16,13 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
 <!-- SEO -->
 <title>{title}</title>
 <meta name="description" content={description} />
+<meta name="robots" content="index, follow" />
 <link rel="canonical" href={SITE_URL} />
 
 <!-- Favicon & Icons -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<meta name="theme-color" content="#0A0F1C" />
+<meta name="theme-color" content={SITE_THEME_COLOR} />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
