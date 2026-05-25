@@ -15,6 +15,8 @@ pnpm-debug.log*
 
 # environment variables
 .env
+.env.*
+!.env.example
 .env.production
 
 # macOS-specific files
@@ -25,3 +27,6 @@ pnpm-debug.log*
 
 .vercel
 CLAUDE.md
+
+# Product screenshots not approved for public release yet
+src/assets/images/

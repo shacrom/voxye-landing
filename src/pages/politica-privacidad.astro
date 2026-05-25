@@ -10,9 +10,11 @@ import { CONTACT_EMAIL } from '../consts';
       <h1 class="font-heading font-bold text-3xl sm:text-4xl text-text-primary mb-6">Política de privacidad</h1>
       <div class="space-y-6 text-text-secondary leading-relaxed">
         <p>Responsable del tratamiento: [placeholder: razón social legal], CIF/NIF [placeholder: CIF/NIF], domicilio fiscal [placeholder: domicilio fiscal]. Contacto: <a class="text-accent hover:text-accent-light transition-colors" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
+        <p>Datos recabados: nombre, email, teléfono, empresa, tipo de solicitud, mensaje y consentimiento enviado desde el formulario de contacto.</p>
         <p>Finalidad: atender solicitudes de información, responder consultas comerciales y gestionar comunicaciones relacionadas con Voxye.</p>
         <p>Base jurídica: consentimiento del usuario al contactar por email o teléfono, y aplicación de medidas precontractuales cuando la consulta lo requiera.</p>
-        <p>Destinatarios: no se prevén cesiones a terceros salvo obligación legal. El sitio puede estar alojado en proveedores tecnológicos con medidas contractuales adecuadas.</p>
+        <p>Destinatarios: no se prevén cesiones a terceros salvo obligación legal. El formulario utiliza Resend como proveedor de envío de email y Vercel como proveedor de hosting, con posibles transferencias internacionales amparadas por cláusulas contractuales tipo u otras garantías aplicables.</p>
+        <p>Conservación: los datos se conservarán durante el tiempo necesario para atender la solicitud y, como referencia, hasta 3 años desde el último contacto salvo obligación legal de conservación superior.</p>
         <p>Derechos: puedes solicitar acceso, rectificación, supresión, oposición, limitación y portabilidad escribiendo a <a class="text-accent hover:text-accent-light transition-colors" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.</p>
         <p>Estos datos son placeholders visibles y deben sustituirse por la información legal real antes de publicar en producción.</p>
       </div>

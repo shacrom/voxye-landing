@@ -4,4 +4,4 @@ export const SITE_DESCRIPTION =
 export const SITE_URL = 'https://voxye.es';
 export const SITE_THEME_COLOR = '#0A0F1C';
 export const CONTACT_EMAIL = 'info@voxye.es';
-export const CONTACT_PHONE = '+34 900 000 000';
+export const CONTACT_PHONE = '+34 623 985 948';
