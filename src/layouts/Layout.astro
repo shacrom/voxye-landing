@@ -34,11 +34,12 @@ const { title, description } = Astro.props;
       const menuIcon = document.getElementById('menu-icon')!;
 
       // Header background on scroll (throttled with rAF)
-      let headerScrolled = false;
+      const forceSolidHeader = header.dataset.solidHeader === 'true';
+      let headerScrolled = forceSolidHeader;
       let ticking = false;
 
       function updateHeader() {
-        const scrolled = window.scrollY > 50;
+        const scrolled = forceSolidHeader || window.scrollY > 50;
         if (scrolled !== headerScrolled) {
           headerScrolled = scrolled;
           if (scrolled) {
