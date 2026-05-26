@@ -30,3 +30,6 @@ CLAUDE.md
 
 # Product screenshots not approved for public release yet
 src/assets/images/
+# Local Pi runtime state
+.atl/
+.pi/
