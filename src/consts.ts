@@ -8,6 +8,6 @@ export const CONTACT_PHONE = '+34 623 985 948';
 
 export const LEGAL_OWNER_NAME = 'Marcos Miguel Báscones';
 export const LEGAL_OWNER_NIF = '20911600T';
-export const LEGAL_CONTACT_EMAIL = 'marmibas.dev@gmail.com';
-export const LEGAL_CONTACT_PHONE = '+34 614 224 236';
+export const LEGAL_CONTACT_EMAIL = CONTACT_EMAIL;
+export const LEGAL_CONTACT_PHONE = CONTACT_PHONE;
 export const LEGAL_ADDRESS_NOTICE = 'Domicilio no publicado por privacidad; disponible para autoridades competentes o comunicaciones legalmente requeridas previa solicitud.';
