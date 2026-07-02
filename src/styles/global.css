@@ -1,17 +1,22 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-primary: #0A0F1C;
-  --color-accent: #D4A853;
-  --color-accent-light: #E8C877;
-  --color-surface: #FFFFFF;
-  --color-surface-alt: #F8F9FA;
-  --color-text-primary: #111111;
-  --color-text-secondary: #6B7280;
-  --color-text-inverse: #FFFFFF;
+  /* Tinta y papel: la landing se viste como los documentos que genera el producto */
+  --color-primary: #0B1120;
+  --color-primary-soft: #141D33;
+  --color-accent: #A87B24;
+  --color-accent-light: #E3B95C;
+  --color-surface: #FAF8F2;
+  --color-surface-alt: #F1ECDF;
+  --color-card: #FFFFFF;
+  --color-line: #E3DCC9;
+  --color-text-primary: #171C28;
+  --color-text-secondary: #5B6270;
+  --color-text-inverse: #F6F4EC;
 
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Archivo', sans-serif;
+  --font-body: 'Archivo', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
 }
 
 html {
@@ -28,6 +33,35 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+/* Display expandido: Archivo variable con eje wdth */
+.font-display {
+  font-family: var(--font-heading);
+  font-stretch: 118%;
+  letter-spacing: -0.02em;
+}
+
+/* Etiqueta de documento: mono, uppercase, tracking ancho */
+.doc-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+/* Sello de goma */
+.stamp {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  border: 2px solid currentColor;
+  border-radius: 4px;
+  padding: 0.25rem 0.75rem;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='14' intercept='-3'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  mask-size: 120px 120px;
+}
+
 /* Utilities */
 .sr-only {
   position: absolute;
@@ -42,32 +76,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-accent-gradient {
-  background: linear-gradient(to right, var(--color-accent), var(--color-accent-light));
+  background: linear-gradient(to right, var(--color-accent-light), #F0CE7E);
+}
+
+/* Cuadrícula técnica sobre fondo tinta (plano de obra) */
+.blueprint-grid {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--color-text-inverse) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--color-text-inverse) 6%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at 50% 35%, black 0%, transparent 75%);
 }
 
 .hero-ambient {
   background:
-    radial-gradient(ellipse at 50% 20%, color-mix(in srgb, var(--color-accent) 16%, transparent), transparent 55%),
-    radial-gradient(ellipse at 80% 70%, color-mix(in srgb, var(--color-accent-light) 10%, transparent), transparent 45%);
-  animation: ambient-drift 12s ease-in-out infinite alternate;
-}
-
-.hero-grid {
-  background-image:
-    linear-gradient(color-mix(in srgb, var(--color-surface) 8%, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, color-mix(in srgb, var(--color-surface) 8%, transparent) 1px, transparent 1px);
-  background-size: 72px 72px;
-  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+    radial-gradient(ellipse at 20% 15%, color-mix(in srgb, var(--color-accent-light) 14%, transparent), transparent 50%),
+    radial-gradient(ellipse at 85% 80%, color-mix(in srgb, var(--color-accent) 12%, transparent), transparent 45%);
+  animation: ambient-drift 14s ease-in-out infinite alternate;
 }
 
 @keyframes ambient-drift {
   from { transform: scale(1); }
-  to { transform: scale(1.08) translate3d(0, -1rem, 0); }
+  to { transform: scale(1.06) translate3d(0, -0.75rem, 0); }
+}
+
+/* Borde de perforación (separador entre secciones de papel) */
+.perforation {
+  height: 1px;
+  background-image: linear-gradient(90deg, var(--color-line) 55%, transparent 45%);
+  background-size: 14px 1px;
+}
+
+/* Tarjeta documento */
+.doc-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px rgba(13, 17, 32, 0.04), 0 8px 24px -12px rgba(13, 17, 32, 0.12);
 }
 
 /* Header scroll state */
 .header-scrolled {
-  background-color: rgba(10, 15, 28, 0.95);
+  background-color: rgba(11, 17, 32, 0.94);
+  backdrop-filter: blur(8px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
@@ -75,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
 .fade-up {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
   will-change: opacity, transform;
 }
 

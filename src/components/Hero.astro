@@ -1,44 +1,139 @@
 ---
-
 ---
 
 <section class="relative min-h-screen flex items-center bg-primary overflow-hidden">
-  <!-- Background polish -->
+  <!-- Atmósfera -->
   <div class="hero-ambient absolute inset-0"></div>
-  <div class="hero-grid absolute inset-0 opacity-30"></div>
+  <div class="blueprint-grid absolute inset-0 opacity-60"></div>
 
-  <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur">
-      <span class="h-2 w-2 rounded-full bg-accent"></span>
-      <span class="text-sm font-medium text-white/75">ERP para empresas de reformas</span>
-    </div>
+  <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 lg:pt-36 lg:pb-28">
+    <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-10 items-center">
 
-    <!-- Heading -->
-    <h1 class="font-heading font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-text-inverse leading-tight tracking-tight max-w-4xl mx-auto mb-6">
-      Gestiona tus reformas
-      <span class="text-accent"> sin duplicar trabajo</span>
-    </h1>
+      <!-- Copy -->
+      <div>
+        <p class="doc-label text-accent-light mb-6">
+          ERP · Reformas e instalaciones
+        </p>
 
-    <!-- Subtitle -->
-    <p class="text-lg sm:text-xl text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed">
-      Presupuestos, contratos, pedidos y facturas proforma en una sola plataforma.
-    </p>
+        <h1 class="hero-headline font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-[4.25rem] text-text-inverse leading-[1.05] mb-7">
+          Del presupuesto<br />
+          a la proforma,<br />
+          <span class="text-accent-light">sin papeles sueltos.</span>
+        </h1>
 
-    <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-      <a
-        href="/contacto"
-        class="bg-accent-gradient hover:opacity-90 text-primary font-semibold px-8 py-3.5 rounded-lg transition-opacity text-base"
-      >
-        Solicitar demo
-      </a>
-      <a
-        href="#funcionalidades"
-        class="border border-white/20 hover:border-white/40 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base"
-      >
-        Ver funcionalidades
-      </a>
+        <p class="text-lg sm:text-xl text-white/65 max-w-xl mb-10 leading-relaxed">
+          Voxye centraliza presupuestos, contratos, pedidos, incidencias y facturas
+          proforma en una sola plataforma. Cada documento numerado, vinculado y
+          trazable — desde la primera visita hasta el cierre del proyecto.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-12">
+          <a
+            href="/contacto"
+            class="bg-accent-gradient hover:opacity-90 text-primary font-semibold px-8 py-3.5 rounded-lg transition-opacity text-base"
+          >
+            Solicitar demo
+          </a>
+          <a
+            href="#funcionalidades"
+            class="border border-white/20 hover:border-white/40 text-white font-semibold px-8 py-3.5 rounded-lg transition-colors text-base"
+          >
+            Ver módulos
+          </a>
+        </div>
+
+        <!-- Señales de confianza -->
+        <ul class="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/50">
+          <li class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent-light"></span>
+            Numeración automática de documentos
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent-light"></span>
+            Multi-tienda con datos aislados
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-accent-light"></span>
+            100% web, sin instalación
+          </li>
+        </ul>
+      </div>
+
+      <!-- Expediente: documentos apilados -->
+      <div class="relative hidden lg:block" aria-hidden="true">
+        <!-- Contrato (detrás) -->
+        <div class="doc-card fade-up absolute -top-10 right-0 w-[19rem] rotate-3 opacity-90 overflow-hidden">
+          <div class="flex items-center justify-between px-5 py-3 border-b border-line">
+            <span class="doc-label text-text-secondary">Contrato</span>
+            <span class="font-mono text-xs text-text-secondary">CON-2026-0089</span>
+          </div>
+          <div class="px-5 py-4 h-36 overflow-hidden text-text-primary">
+            <p class="font-display font-semibold text-sm mb-2">Contrato de ejecución de obra</p>
+            <p class="text-[10px] leading-relaxed text-text-secondary mb-1.5">
+              En Madrid, a 14 de marzo de 2026, entre <span class="text-text-primary">Voxye Reformas S.L.</span>
+              y <span class="text-text-primary">D. Javier Moreno Ibáñez</span>, se acuerda la ejecución de los
+              trabajos descritos en el presupuesto VX-2026-0142, con un plazo de ejecución de 6 semanas.
+            </p>
+            <p class="text-[10px] leading-relaxed text-text-secondary mb-3">
+              El cliente abona un anticipo del 30% a la firma; el resto se liquida contra proforma final.
+            </p>
+            <div class="flex items-end justify-between pt-1">
+              <svg class="w-16 h-6 text-text-primary" viewBox="0 0 100 32" fill="none">
+                <path d="M2 24 C 12 6, 18 30, 28 14 S 44 4, 52 20 S 68 30, 78 10 S 92 6, 98 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+              <span class="font-mono text-[9px] text-text-secondary">14/03/2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Presupuesto (delante) -->
+        <div class="doc-card fade-up relative mt-16 mr-20 -rotate-2 overflow-hidden" style="transition-delay: 120ms;">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-line">
+            <span class="doc-label text-text-secondary">Presupuesto</span>
+            <span class="font-mono text-xs text-text-secondary">VX-2026-0142</span>
+          </div>
+          <div class="px-6 py-4 h-56 overflow-hidden">
+            <p class="text-[10px] text-text-secondary mb-3">
+              Cliente: <span class="text-text-primary font-medium">Javier Moreno Ibáñez</span> —
+              Reforma cocina, C/ Mayor 14, 3ºB, Madrid
+            </p>
+            <ul class="font-mono text-[10px] text-text-secondary space-y-1.5 mb-3">
+              <li class="flex justify-between gap-2">
+                <span class="text-text-primary truncate">Mobiliario cocina a medida</span>
+                <span class="text-text-primary whitespace-nowrap">4.850,00&nbsp;€</span>
+              </li>
+              <li class="flex justify-between gap-2">
+                <span class="text-text-primary truncate">Encimera silestone + instalación</span>
+                <span class="text-text-primary whitespace-nowrap">1.920,00&nbsp;€</span>
+              </li>
+              <li class="flex justify-between gap-2">
+                <span class="text-text-primary truncate">Electrodomésticos integrados</span>
+                <span class="text-text-primary whitespace-nowrap">2.340,00&nbsp;€</span>
+              </li>
+              <li class="flex justify-between gap-2">
+                <span class="text-text-primary truncate">Fontanería y electricidad</span>
+                <span class="text-text-primary whitespace-nowrap">1.290,00&nbsp;€</span>
+              </li>
+            </ul>
+            <div class="border-t border-line pt-2 font-mono text-[10px] text-text-secondary space-y-0.5">
+              <div class="flex justify-between"><span>Subtotal</span><span>10.400,00&nbsp;€</span></div>
+              <div class="flex justify-between"><span>IVA 21%</span><span>2.184,00&nbsp;€</span></div>
+            </div>
+          </div>
+          <div class="flex items-end justify-between px-6 py-4 border-t border-line">
+            <div>
+              <p class="font-mono text-[0.65rem] uppercase tracking-wider text-text-secondary mb-1">Total</p>
+              <p class="font-display font-bold text-2xl text-text-primary">12.584&nbsp;€</p>
+            </div>
+            <span class="stamp text-sm text-accent">Aceptado</span>
+          </div>
+        </div>
+
+        <!-- Hilo de trazabilidad -->
+        <svg class="hero-thread absolute -bottom-8 left-6 w-40 h-16 text-accent-light" viewBox="0 0 160 64" fill="none">
+          <path d="M4 60 C 50 60, 60 8, 156 8" stroke="currentColor" stroke-width="1.5" pathLength="1" />
+        </svg>
+      </div>
     </div>
   </div>
 
@@ -49,3 +144,47 @@
     </svg>
   </div>
 </section>
+
+<style>
+  /* Entrada del titular: el eje wdth de Archivo se expande hasta el font-stretch final de .font-display */
+  .hero-headline {
+    animation: headline-expand 0.9s ease-out both;
+  }
+
+  @keyframes headline-expand {
+    from {
+      font-stretch: 100%;
+      font-weight: 500;
+    }
+    to {
+      font-stretch: 118%;
+      font-weight: 800;
+    }
+  }
+
+  /* Hilo de trazabilidad: se dibuja tras la entrada de las tarjetas */
+  .hero-thread path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: thread-draw 1.2s ease-out 0.6s both;
+  }
+
+  @keyframes thread-draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-headline {
+      animation: none;
+      font-stretch: 118%;
+      font-weight: 800;
+    }
+
+    .hero-thread path {
+      animation: none;
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

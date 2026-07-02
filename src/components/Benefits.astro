@@ -1,44 +1,48 @@
 ---
 const benefits = [
   {
-    title: 'Ahorra tiempo en cada presupuesto',
-    desc: 'El editor modular de Voxye te ayuda a crear presupuestos profesionales con menos fricción. Con vista previa PDF en tiempo real, lo que ves es lo que tu cliente recibe.',
-    highlights: ['Editor modular de partidas', 'Vista previa PDF en tiempo real', 'Plantillas reutilizables'],
+    title: 'Presupuesta en minutos, no en tardes',
+    desc: 'El editor modular monta el presupuesto por bloques y partidas, con vista previa PDF en tiempo real: lo que ves es exactamente lo que recibe tu cliente. Duplica presupuestos anteriores y deja que la numeración se genere sola.',
+    highlights: ['Vista previa PDF en tiempo real', 'Duplicado de presupuestos en un clic', 'Numeración automática por serie', 'Firma digital del cliente'],
+    visual: 'budget',
   },
   {
-    title: 'Control total de tu negocio',
-    desc: 'Dashboards con visualizaciones y KPIs para conocer el estado de cada proyecto, controlar gastos y tomar decisiones basadas en datos reales.',
-    highlights: ['Gráficas interactivas', 'KPIs de negocio', 'Informes por proyecto y período'],
+    title: 'Proformas claras, anticipos bajo control',
+    desc: 'Emite proformas a cuenta durante el proyecto y una proforma final con los anticipos deducidos automáticamente. Cada proforma cuelga de su contrato, con el PDF generado al instante y listo para enviar por email al cliente.',
+    highlights: ['Proformas a cuenta y finales', 'Anticipos deducidos automáticamente', 'IVA configurable', 'PDF generado y enviado desde la plataforma'],
+    visual: 'invoice',
   },
   {
-    title: 'Todo conectado, nada se pierde',
-    desc: 'Desde el primer presupuesto hasta la última factura proforma, todo queda registrado y vinculado. Trazabilidad completa con auditoría de cada acción.',
-    highlights: ['Trazabilidad completa', 'Auditoría de acciones', 'Documentos centralizados'],
+    title: 'Tu negocio entero, a la vista',
+    desc: 'Dashboard con conversión de presupuesto a contrato, ingresos mensuales, estado de cada documento y top de clientes. Con varias tiendas, cada una ve solo lo suyo y tú lo ves todo. Y cada acción queda registrada en la auditoría.',
+    highlights: ['Más de 25 KPIs y gráficas', 'Multi-tienda con datos aislados', 'Auditoría de cada acción', 'Papelera recuperable'],
+    visual: 'analytics',
   },
 ];
 ---
 
-<section id="beneficios" class="py-24 lg:py-32 bg-surface">
+<section id="beneficios" class="py-24 lg:py-32 bg-surface-alt">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
-      <span class="text-accent font-semibold text-sm uppercase tracking-wider">Beneficios</span>
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight text-text-primary mt-3 mb-4">
-        Diseñado para empresas como la tuya
+    <div class="max-w-3xl mb-20 fade-up">
+      <p class="doc-label text-accent mb-4">Beneficios</p>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-text-primary mb-4 leading-tight">
+        Menos administración, más obra
       </h2>
-      <p class="text-text-secondary text-lg">
-        Cada funcionalidad está pensada para resolver problemas reales del sector de reformas.
+      <p class="text-text-secondary text-lg max-w-2xl">
+        Cada funcionalidad existe porque resuelve un problema real del sector:
+        presupuestos que se eternizan, documentos dispersos y proyectos sin visibilidad.
       </p>
     </div>
 
     <!-- Benefits -->
-    <div class="space-y-20">
+    <div class="space-y-24">
       {benefits.map((benefit, i) => (
-        <div class={`flex flex-col lg:flex-row items-center gap-12 lg:gap-16 fade-up ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
-          {/* Text */}
+        <div class={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 fade-up ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+          <!-- Text -->
           <div class="flex-1">
-            <h3 class="font-heading font-bold text-2xl sm:text-3xl text-text-primary mb-4">{benefit.title}</h3>
-            <p class="text-text-secondary text-lg leading-relaxed mb-6">{benefit.desc}</p>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl text-text-primary mb-4">{benefit.title}</h3>
+            <p class="text-text-secondary text-lg leading-relaxed mb-7">{benefit.desc}</p>
             <ul class="space-y-3">
               {benefit.highlights.map((h) => (
                 <li class="flex items-center gap-3">
@@ -51,18 +55,112 @@ const benefits = [
             </ul>
           </div>
 
-          {/* Placeholder image */}
-          <div class="flex-1 w-full">
-            <div class="bg-surface-alt rounded-2xl border border-gray-100 aspect-video flex items-center justify-center">
-              <div class="text-center p-8">
-                <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-                  </svg>
+          <!-- Visual -->
+          <div class="flex-1 w-full" aria-hidden="true">
+            {benefit.visual === 'budget' && (
+              <div class="doc-card max-w-md mx-auto overflow-hidden">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-line">
+                  <span class="doc-label text-text-secondary">Presupuesto</span>
+                  <span class="font-mono text-xs text-text-secondary">VX-2026-0143</span>
                 </div>
-                <p class="text-text-secondary text-sm">Vista orientativa del flujo</p>
+                <div class="px-6 py-4 h-56 overflow-hidden">
+                  <p class="text-[10px] text-text-secondary mb-3">
+                    Cliente: <span class="text-text-primary font-medium">Marta Sáez Fuentes</span> —
+                    Reforma integral baño, Av. de la Constitución 22, Valencia
+                  </p>
+                  <ul class="font-mono text-[10px] text-text-secondary space-y-1.5 mb-3">
+                    <li class="flex justify-between gap-2">
+                      <span class="text-text-primary truncate">Alicatado y solado porcelánico</span>
+                      <span class="text-text-primary whitespace-nowrap">2.180,00&nbsp;€</span>
+                    </li>
+                    <li class="flex justify-between gap-2">
+                      <span class="text-text-primary truncate">Plato de ducha + mampara</span>
+                      <span class="text-text-primary whitespace-nowrap">1.340,00&nbsp;€</span>
+                    </li>
+                    <li class="flex justify-between gap-2">
+                      <span class="text-text-primary truncate">Mueble de baño a medida</span>
+                      <span class="text-text-primary whitespace-nowrap">980,00&nbsp;€</span>
+                    </li>
+                    <li class="flex justify-between gap-2">
+                      <span class="text-text-primary truncate">Fontanería y desagües</span>
+                      <span class="text-text-primary whitespace-nowrap">760,00&nbsp;€</span>
+                    </li>
+                  </ul>
+                  <div class="border-t border-line pt-2 font-mono text-[10px] text-text-secondary space-y-0.5">
+                    <div class="flex justify-between"><span>Subtotal</span><span>5.260,00&nbsp;€</span></div>
+                    <div class="flex justify-between"><span>IVA 21%</span><span>1.104,60&nbsp;€</span></div>
+                    <div class="flex justify-between text-text-primary font-medium"><span>Total</span><span>6.364,60&nbsp;€</span></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between border-t border-line px-6 py-4">
+                  <span class="font-mono text-[0.65rem] uppercase tracking-wider text-text-secondary">Vista previa PDF</span>
+                  <span class="inline-flex items-center gap-1.5 text-xs font-medium text-accent">
+                    <span class="h-1.5 w-1.5 rounded-full bg-accent animate-pulse"></span>
+                    En tiempo real
+                  </span>
+                </div>
               </div>
-            </div>
+            )}
+
+            {benefit.visual === 'invoice' && (
+              <div class="doc-card p-6 max-w-md mx-auto">
+                <div class="flex items-center justify-between mb-5">
+                  <span class="doc-label text-text-secondary">Proforma final</span>
+                  <span class="font-mono text-xs text-text-secondary">PF-2026-0068</span>
+                </div>
+                <div class="mb-5">
+                  <p class="text-[10px] text-text-secondary">
+                    Cliente: <span class="text-text-primary font-medium">Marta Sáez Fuentes</span> —
+                    Contrato CT-2026-0071, cuarta certificación de obra
+                  </p>
+                </div>
+                <div class="grid grid-cols-3 gap-3 mb-5">
+                  <div class="rounded-lg border border-line bg-surface p-3 text-center">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-text-secondary mb-1">Base</p>
+                    <p class="font-display font-semibold text-sm text-text-primary">15.405&nbsp;€</p>
+                  </div>
+                  <div class="rounded-lg border border-line bg-surface p-3 text-center">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-text-secondary mb-1">IVA 21%</p>
+                    <p class="font-display font-semibold text-sm text-text-primary">3.235&nbsp;€</p>
+                  </div>
+                  <div class="rounded-lg border border-accent/40 bg-accent/5 p-3 text-center">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-accent mb-1">Total</p>
+                    <p class="font-display font-semibold text-sm text-text-primary">18.640&nbsp;€</p>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between border-t border-line pt-4">
+                  <div>
+                    <p class="font-mono text-[0.65rem] uppercase tracking-wider text-text-secondary mb-1">Anticipos deducidos</p>
+                    <p class="font-display font-semibold text-sm text-text-primary">−7.456&nbsp;€</p>
+                  </div>
+                  <span class="stamp text-xs text-accent">Emitida</span>
+                </div>
+              </div>
+            )}
+
+            {benefit.visual === 'analytics' && (
+              <div class="doc-card p-6 max-w-md mx-auto">
+                <div class="flex items-center justify-between mb-5">
+                  <span class="doc-label text-text-secondary">Ingresos · 12 meses</span>
+                  <span class="font-mono text-xs text-accent">▲ 23%</span>
+                </div>
+                <div class="flex items-end gap-2 h-32 mb-5">
+                  {[35, 48, 42, 60, 55, 72, 64, 80, 76, 90, 84, 100].map((h) => (
+                    <div class="flex-1 rounded-t bg-accent/25 hover:bg-accent/50 transition-colors" style={`height: ${h}%`}></div>
+                  ))}
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                  <div class="rounded-lg border border-line bg-surface p-3">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-text-secondary mb-1">Conversión</p>
+                    <p class="font-display font-semibold text-text-primary">Presupuesto → Contrato</p>
+                  </div>
+                  <div class="rounded-lg border border-line bg-surface p-3">
+                    <p class="font-mono text-[0.6rem] uppercase tracking-wider text-text-secondary mb-1">Proformas</p>
+                    <p class="font-display font-semibold text-text-primary">Por estado y cliente</p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       ))}

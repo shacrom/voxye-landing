@@ -1,0 +1,44 @@
+---
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+// Upload contract: drop voxye-demo.mp4 (and optional poster voxye-demo-poster.jpg) into
+// public/demo/ and redeploy — this section appears automatically at build time (static site,
+// so the check happens at build time, not runtime). Until then this component renders nothing.
+const videoPath = fileURLToPath(new URL('../../public/demo/voxye-demo.mp4', import.meta.url));
+const posterPath = fileURLToPath(new URL('../../public/demo/voxye-demo-poster.jpg', import.meta.url));
+
+const hasVideo = existsSync(videoPath);
+const hasPoster = hasVideo && existsSync(posterPath);
+---
+
+{hasVideo && (
+  <section class="relative py-24 lg:py-28 bg-primary overflow-hidden">
+    <div class="blueprint-grid absolute inset-0 opacity-40"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="doc-label text-accent-light mb-4">Vídeo</p>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-text-inverse mb-10 leading-tight">
+        Míralo funcionando
+      </h2>
+
+      <div class="doc-card overflow-hidden text-left">
+        <div class="flex items-center justify-between px-5 py-3 border-b border-line bg-surface-alt">
+          <span class="doc-label text-accent">DEMO</span>
+          <span class="font-mono text-[0.65rem] uppercase tracking-wider text-text-secondary">Voxye</span>
+        </div>
+        <video
+          class="w-full aspect-video bg-black"
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          loop
+          poster={hasPoster ? '/demo/voxye-demo-poster.jpg' : undefined}
+        >
+          <source src="/demo/voxye-demo.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+)}

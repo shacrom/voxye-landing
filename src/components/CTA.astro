@@ -2,13 +2,19 @@
 import { CONTACT_PHONE } from '../consts';
 ---
 
-<section id="contacto" class="py-24 lg:py-32 bg-primary">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
-    <h2 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl tracking-tight text-text-inverse mb-6">
-      ¿Quieres ver si Voxye encaja con tu forma de trabajar?
+<section id="contacto" class="relative py-24 lg:py-32 bg-primary overflow-hidden">
+  <div class="hero-ambient absolute inset-0"></div>
+  <div class="blueprint-grid absolute inset-0 opacity-40"></div>
+
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+    <span class="stamp inline-block text-sm text-accent-light mb-8">Demo gratuita</span>
+
+    <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-text-inverse mb-6 leading-tight">
+      ¿Vemos cómo encaja Voxye<br class="hidden sm:block" /> con tu forma de trabajar?
     </h2>
     <p class="text-white/60 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-      Solicita una demo y revisamos contigo el flujo de presupuesto, contrato, pedido y factura proforma.
+      Solicita una demo y recorremos contigo el ciclo completo —presupuesto, contrato,
+      pedidos y proforma— con ejemplos de tu propio negocio.
     </p>
 
     <!-- CTAs -->
@@ -30,7 +36,7 @@ import { CONTACT_PHONE } from '../consts';
     <!-- Direct contact -->
     <p class="text-white/40 text-sm">
       También puedes llamarnos:
-      <a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`} class="text-accent hover:text-accent-light transition-colors">{CONTACT_PHONE}</a>
+      <a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`} class="text-accent-light hover:text-white transition-colors">{CONTACT_PHONE}</a>
     </p>
   </div>
 </section>

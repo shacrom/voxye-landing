@@ -6,19 +6,23 @@ const faqs = [
   },
   {
     q: '¿Necesito instalar algo?',
-    a: 'No. Voxye es una aplicación web. Solo necesitas un navegador actualizado para acceder desde cualquier lugar.',
+    a: 'No. Voxye es una aplicación web. Solo necesitas un navegador actualizado para acceder desde la oficina, desde casa o desde la obra.',
+  },
+  {
+    q: '¿Puedo emitir facturas fiscales desde Voxye?',
+    a: 'Actualmente Voxye trabaja con facturas proforma: a cuenta durante la obra y final con los anticipos deducidos. La facturación fiscal está en la hoja de ruta, pero hoy la emisión fiscal se realiza fuera de la plataforma.',
   },
   {
     q: '¿Puedo migrar desde hojas de cálculo u otro sistema?',
-    a: 'Sí, se puede estudiar la migración durante el onboarding. Primero revisamos qué datos conviene trasladar y qué parte es mejor empezar a gestionar directamente en Voxye.',
+    a: 'Sí. El catálogo de productos se importa desde Excel, y durante el onboarding revisamos qué otros datos conviene trasladar y cuáles es mejor empezar a gestionar directamente en Voxye.',
   },
   {
-    q: '¿Cuál es el estado de Verifactu?',
-    a: 'La integración con Verifactu está en desarrollo. Voxye ya contempla el flujo de facturas proforma, pero no se presenta como una promesa de cumplimiento fiscal automático sin validarlo en cada caso.',
+    q: 'Tengo varias tiendas o almacenes, ¿me sirve?',
+    a: 'Sí, Voxye es multi-tienda de serie: cada tienda trabaja con sus propios documentos y numeración, con datos aislados entre sí, y la dirección lo ve todo desde la misma cuenta.',
   },
   {
     q: '¿Tendré soporte durante la puesta en marcha?',
-    a: 'Sí. El onboarding incluye acompañamiento para configurar la forma de trabajar y resolver dudas del equipo durante la adopción.',
+    a: 'Sí. El onboarding incluye acompañamiento para configurar tu forma de trabajar (series de numeración, plantillas de email, módulos por tienda) y resolver dudas del equipo durante la adopción.',
   },
   {
     q: '¿Hay demo o prueba antes de decidir?',
@@ -26,7 +30,7 @@ const faqs = [
   },
   {
     q: '¿Quién es propietario de los datos?',
-    a: 'Los datos de tu empresa siguen siendo tuyos. Voxye está diseñado para centralizar la documentación y mantener la trazabilidad de la actividad dentro de la plataforma.',
+    a: 'Los datos de tu empresa siguen siendo tuyos. Voxye centraliza la documentación y mantiene la trazabilidad de la actividad, con auditoría de acciones y papelera recuperable.',
   },
 ];
 ---
@@ -34,9 +38,9 @@ const faqs = [
 <section id="faq" class="py-24 lg:py-32 bg-surface-alt">
   <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center mb-16 fade-up">
-      <span class="text-accent font-semibold text-sm uppercase tracking-wider">FAQ</span>
-      <h2 class="font-heading font-bold text-3xl sm:text-4xl tracking-tight text-text-primary mt-3 mb-4">
+    <div class="mb-16 fade-up">
+      <p class="doc-label text-accent mb-4">FAQ</p>
+      <h2 class="font-display font-bold text-3xl sm:text-4xl text-text-primary leading-tight">
         Preguntas frecuentes
       </h2>
     </div>
@@ -44,8 +48,8 @@ const faqs = [
     <!-- Accordion -->
     <div class="space-y-4 stagger-children">
       {faqs.map((faq) => (
-        <details class="group bg-surface rounded-xl border border-gray-100 overflow-hidden fade-up">
-          <summary class="flex items-center justify-between cursor-pointer p-6 font-heading font-semibold text-text-primary hover:text-accent transition-colors list-none">
+        <details class="group doc-card overflow-hidden fade-up">
+          <summary class="flex items-center justify-between cursor-pointer p-6 font-display font-semibold text-text-primary hover:text-accent transition-colors list-none">
             <span>{faq.q}</span>
             <svg class="w-5 h-5 text-text-secondary group-open:rotate-180 transition-transform flex-shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
