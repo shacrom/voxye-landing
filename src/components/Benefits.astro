@@ -2,20 +2,20 @@
 const benefits = [
   {
     title: 'Presupuesta en minutos, no en tardes',
-    desc: 'El editor modular monta el presupuesto por bloques y partidas, con vista previa PDF en tiempo real: lo que ves es exactamente lo que recibe tu cliente. Duplica presupuestos anteriores y deja que la numeración se genere sola.',
-    highlights: ['Vista previa PDF en tiempo real', 'Duplicado de presupuestos en un clic', 'Numeración automática por serie', 'Firma digital del cliente'],
+    desc: 'El editor modular monta el presupuesto por bloques y partidas, con vista previa PDF en tiempo real: lo que ves es exactamente lo que recibe tu cliente. Totales, IVA y descuentos se calculan solos — se acabó revisar que las fórmulas del Excel no se hayan roto.',
+    highlights: ['Lo que ves en pantalla es el PDF que recibe el cliente', 'Duplica uno parecido en vez de empezar de cero', 'Numeración automática: sin saltos ni números repetidos', 'Se acabó el "presupuesto_final_v3.xlsx"'],
     visual: 'budget',
   },
   {
     title: 'Proformas claras, anticipos bajo control',
     desc: 'Emite proformas a cuenta durante el proyecto y una proforma final con los anticipos deducidos automáticamente. Cada proforma cuelga de su contrato, con el PDF generado al instante y listo para enviar por email al cliente.',
-    highlights: ['Proformas a cuenta y finales', 'Anticipos deducidos automáticamente', 'IVA configurable', 'PDF generado y enviado desde la plataforma'],
+    highlights: ['Anticipos deducidos solos: sin restas a mano ni sorpresas', 'Cada proforma cuelga de su contrato, nada se traspapela', 'IVA heredado del contrato: imposible equivocarse', 'PDF listo para enviar en el momento'],
     visual: 'invoice',
   },
   {
     title: 'Tu negocio entero, a la vista',
-    desc: 'Dashboard con conversión de presupuesto a contrato, ingresos mensuales, estado de cada documento y top de clientes. Con varias tiendas, cada una ve solo lo suyo y tú lo ves todo. Y cada acción queda registrada en la auditoría.',
-    highlights: ['Más de 25 KPIs y gráficas', 'Multi-tienda con datos aislados', 'Auditoría de cada acción', 'Papelera recuperable'],
+    desc: 'Un panel de control con cuántos presupuestos acaban en contrato, los ingresos estimados mensuales y el estado de cada documento. Con varias tiendas, cada una trabaja con sus documentos y toda la empresa lo ve todo. Y cada acción queda registrada en la auditoría.',
+    highlights: ['Sabes qué presupuestos acaban en contrato y cuáles se pierden', 'El estado de cada proyecto sin preguntar a nadie', 'Quién hizo qué y cuándo, siempre registrado', 'Si algo se borra por error, la papelera lo recupera'],
     visual: 'analytics',
   },
 ];
@@ -27,7 +27,7 @@ const benefits = [
     <div class="max-w-3xl mb-20 fade-up">
       <p class="doc-label text-accent mb-4">Beneficios</p>
       <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-[2.75rem] text-text-primary mb-4 leading-tight">
-        Menos administración, más obra
+        Menos administración, más proyectos
       </h2>
       <p class="text-text-secondary text-lg max-w-2xl">
         Cada funcionalidad existe porque resuelve un problema real del sector:
@@ -141,7 +141,7 @@ const benefits = [
             {benefit.visual === 'analytics' && (
               <div class="doc-card p-6 max-w-md mx-auto">
                 <div class="flex items-center justify-between mb-5">
-                  <span class="doc-label text-text-secondary">Ingresos · 12 meses</span>
+                  <span class="doc-label text-text-secondary">Ingresos estimados · 12 meses</span>
                   <span class="font-mono text-xs text-accent">▲ 23%</span>
                 </div>
                 <div class="flex items-end gap-2 h-32 mb-5">

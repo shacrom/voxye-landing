@@ -1,6 +1,6 @@
-export const SITE_TITLE = 'Voxye — ERP para empresas de reformas e instalaciones';
+export const SITE_TITLE = 'Voxye — Programa de gestión para empresas de reformas e instalaciones';
 export const SITE_DESCRIPTION =
-  'Del presupuesto a la proforma: Voxye centraliza presupuestos, contratos, pedidos, incidencias y facturas proforma para empresas de reformas. Multi-tienda, numeración automática y trazabilidad completa.';
+  'Voxye centraliza presupuestos, contratos, pedidos, incidencias y facturas proforma para empresas de reformas e instalaciones. Multi-tienda, numeración automática y trazabilidad completa.';
 export const SITE_URL = 'https://voxye.es';
 export const SITE_THEME_COLOR = '#0A0F1C';
 export const CONTACT_EMAIL = 'info@voxye.es';

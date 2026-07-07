@@ -3,7 +3,7 @@ const steps = [
   {
     number: '01',
     title: 'Presupuesto',
-    desc: 'Crea el presupuesto en el editor modular con vista previa PDF en tiempo real. El cliente lo firma digitalmente.',
+    desc: 'Crea el presupuesto en el editor modular con vista previa PDF en tiempo real y envíaselo al cliente por email.',
     tag: 'VX-2026-0142',
   },
   {
@@ -27,8 +27,8 @@ const steps = [
   {
     number: '05',
     title: 'Análisis',
-    desc: 'Sigue la conversión de presupuestos, los ingresos y el estado de cada proyecto en el dashboard.',
-    tag: '25+ KPIs',
+    desc: 'Sigue cuántos presupuestos acaban en contrato, los ingresos estimados y el estado de cada proyecto en el panel de control.',
+    tag: '25+ indicadores',
   },
 ];
 ---
@@ -67,11 +67,11 @@ const steps = [
       <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 stagger-children pl-10 lg:pl-0">
         {steps.map((step) => (
           <div class="workflow-step relative fade-up" data-step>
-            <div class="relative h-full doc-card p-5 transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <div class="relative h-full flex flex-col doc-card p-5 transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-lg">
               <span class="font-display font-extrabold text-4xl text-accent/20 select-none" aria-hidden="true">{step.number}</span>
               <h3 class="font-display font-semibold text-xl text-text-primary mt-2 mb-2">{step.title}</h3>
               <p class="text-text-secondary text-sm leading-relaxed mb-4">{step.desc}</p>
-              <span class="step-tag font-mono text-[0.65rem] uppercase tracking-wider text-text-secondary border border-line rounded px-2 py-1 inline-block transition-colors duration-300">
+              <span class="step-tag font-mono text-[0.65rem] uppercase tracking-wider text-text-secondary border border-line rounded px-2 py-1 inline-block self-start mt-auto transition-colors duration-300">
                 {step.tag}
               </span>
             </div>
@@ -83,15 +83,17 @@ const steps = [
 </section>
 
 <style>
-  /* El hilo se dibuja según el progreso de scroll de la sección; el activate-* JS controla el offset */
+  /* The thread draws itself once the section enters the viewport; JS kicks off the sequence */
   #thread-path-desktop {
     stroke: var(--color-accent);
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
+    transition: stroke-dashoffset 2.8s ease-in-out;
   }
 
   .thread-mobile-fill {
     height: 0%;
+    transition: height 2.8s ease-in-out;
   }
 
   /* Estado activado: la tarjeta y su chip quedan marcados por el hilo */
@@ -117,7 +119,8 @@ const steps = [
 </style>
 
 <script>
-  // Hilo de trazabilidad: se dibuja según el scroll de la sección y activa cada paso a su paso
+  // Traceability thread: once the section enters the viewport, the thread draws
+  // itself and the steps complete one after another.
   function initWorkflowThread() {
     const section = document.getElementById('workflow-timeline');
     if (!section) return;
@@ -139,43 +142,64 @@ const steps = [
       desktopPath.style.strokeDashoffset = `${pathLength}`;
     }
 
-    let ticking = false;
+    const STEP_STAGGER_MS = 600;
+    const FIRST_STEP_DELAY_MS = 200;
+    let pendingTimeouts: number[] = [];
 
-    function updateThread() {
-      ticking = false;
-      const rect = section!.getBoundingClientRect();
-      const viewportH = window.innerHeight;
-
-      // Progreso 0 -> 1 según el recorrido de la sección por el viewport
-      const total = rect.height + viewportH;
-      const traveled = viewportH - rect.top;
-      const progress = Math.min(1, Math.max(0, traveled / total));
-
-      if (desktopPath && pathLength) {
-        desktopPath.style.strokeDashoffset = `${pathLength * (1 - progress)}`;
+    function playSequence() {
+      if (desktopPath) {
+        desktopPath.style.strokeDashoffset = '0';
       }
-
       if (mobileFill) {
-        mobileFill.style.height = `${progress * 100}%`;
+        mobileFill.style.height = '100%';
       }
-
       steps.forEach((step, i) => {
-        const stepThreshold = (i + 0.5) / steps.length;
-        if (progress >= stepThreshold) {
-          step.classList.add('step-active');
-        }
+        pendingTimeouts.push(
+          window.setTimeout(() => step.classList.add('step-active'), FIRST_STEP_DELAY_MS + i * STEP_STAGGER_MS)
+        );
       });
     }
 
-    function onScroll() {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(updateThread);
+    // Snap back to the initial state without animating, so the next entrance replays cleanly
+    function resetSequence() {
+      pendingTimeouts.forEach((id) => clearTimeout(id));
+      pendingTimeouts = [];
+      steps.forEach((step) => step.classList.remove('step-active'));
+
+      if (desktopPath) {
+        desktopPath.style.transition = 'none';
+        desktopPath.style.strokeDashoffset = `${pathLength}`;
+        void desktopPath.getBoundingClientRect();
+        desktopPath.style.transition = '';
+      }
+      if (mobileFill) {
+        mobileFill.style.transition = 'none';
+        mobileFill.style.height = '0%';
+        void mobileFill.getBoundingClientRect();
+        mobileFill.style.transition = '';
       }
     }
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    updateThread();
+    // Play once ~35% of the section is visible; reset only after it fully leaves
+    // the viewport so the snap back is never seen.
+    let played = false;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio >= 0.35 && !played) {
+            played = true;
+            playSequence();
+          } else if (!entry.isIntersecting && played) {
+            played = false;
+            resetSequence();
+          }
+        });
+      },
+      { threshold: [0, 0.35] }
+    );
+
+    observer.observe(section);
   }
 
   initWorkflowThread();
