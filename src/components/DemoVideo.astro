@@ -1,12 +1,14 @@
 ---
 import { existsSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 // Upload contract: drop voxye-demo.mp4 (and optional poster voxye-demo-poster.jpg) into
 // public/demo/ and redeploy — this section appears automatically at build time (static site,
 // so the check happens at build time, not runtime). Until then this component renders nothing.
-const videoPath = fileURLToPath(new URL('../../public/demo/voxye-demo.mp4', import.meta.url));
-const posterPath = fileURLToPath(new URL('../../public/demo/voxye-demo-poster.jpg', import.meta.url));
+// Paths resolve from the project root (process.cwd()): import.meta.url points into the
+// bundled chunk location on production builds, which broke existsSync on Vercel.
+const videoPath = join(process.cwd(), 'public/demo/voxye-demo.mp4');
+const posterPath = join(process.cwd(), 'public/demo/voxye-demo-poster.jpg');
 
 const hasVideo = existsSync(videoPath);
 const hasPoster = hasVideo && existsSync(posterPath);
