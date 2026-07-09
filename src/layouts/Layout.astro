@@ -26,6 +26,41 @@ const { title, description } = Astro.props;
     </main>
     <Footer />
 
+    <section
+      id="analytics-consent-banner"
+      class="hidden fixed inset-x-4 bottom-4 z-50 mx-auto max-w-3xl rounded-2xl border border-gray-200 bg-white p-5 shadow-2xl"
+      role="region"
+      aria-labelledby="analytics-consent-title"
+      aria-describedby="analytics-consent-description"
+    >
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div class="space-y-2">
+          <h2 id="analytics-consent-title" class="font-heading text-xl font-bold text-text-primary">
+            Privacidad y analítica
+          </h2>
+          <p id="analytics-consent-description" class="text-base leading-relaxed text-text-secondary">
+            Usamos cookies de analítica para entender cómo se utiliza la web y mejorarla. Puedes aceptarlas o rechazarlas. Más información en la <a href="/politica-cookies" class="font-semibold text-accent underline underline-offset-2 hover:text-accent-light">Política de cookies</a>.
+          </p>
+        </div>
+        <div class="flex shrink-0 flex-col gap-3 sm:flex-row">
+          <button
+            id="analytics-consent-reject"
+            type="button"
+            class="rounded-full border border-gray-300 px-5 py-3 text-base font-semibold text-text-primary transition-colors hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          >
+            Rechazar
+          </button>
+          <button
+            id="analytics-consent-accept"
+            type="button"
+            class="rounded-full bg-accent px-5 py-3 text-base font-semibold text-white transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          >
+            Aceptar analítica
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Header scroll effect + Mobile menu -->
     <script>
       const header = document.getElementById('main-header')!;
@@ -95,6 +130,73 @@ const { title, description } = Astro.props;
       );
 
       document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+    </script>
+
+    <!-- Analytics consent -->
+    <script>
+      const GA_MEASUREMENT_ID = 'G-E049KY16GY';
+      const ANALYTICS_CONSENT_KEY = 'voxye:analytics-consent';
+
+      type AnalyticsConsent = 'accepted' | 'rejected';
+      type AnalyticsWindow = Window & {
+        dataLayer?: unknown[];
+        gtag?: (...args: unknown[]) => void;
+      };
+
+      const analyticsWindow = window as AnalyticsWindow;
+      const banner = document.getElementById('analytics-consent-banner');
+      const acceptButton = document.getElementById('analytics-consent-accept');
+      const rejectButton = document.getElementById('analytics-consent-reject');
+
+      function loadGoogleAnalytics() {
+        if (document.querySelector(`script[src*="googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"]`)) {
+          return;
+        }
+
+        analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+        analyticsWindow.gtag = function gtag(...args: unknown[]) {
+          analyticsWindow.dataLayer?.push(args);
+        };
+
+        analyticsWindow.gtag('js', new Date());
+        analyticsWindow.gtag('config', GA_MEASUREMENT_ID);
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+        document.head.appendChild(script);
+      }
+
+      function saveConsent(choice: AnalyticsConsent) {
+        try {
+          localStorage.setItem(ANALYTICS_CONSENT_KEY, choice);
+        } catch {
+          // If storage is unavailable, respect the current choice for this page view only.
+        }
+
+        banner?.classList.add('hidden');
+
+        if (choice === 'accepted') {
+          loadGoogleAnalytics();
+        }
+      }
+
+      let storedConsent: AnalyticsConsent | null = null;
+
+      try {
+        storedConsent = localStorage.getItem(ANALYTICS_CONSENT_KEY) as AnalyticsConsent | null;
+      } catch {
+        storedConsent = null;
+      }
+
+      if (storedConsent === 'accepted') {
+        loadGoogleAnalytics();
+      } else if (storedConsent !== 'rejected') {
+        banner?.classList.remove('hidden');
+      }
+
+      acceptButton?.addEventListener('click', () => saveConsent('accepted'));
+      rejectButton?.addEventListener('click', () => saveConsent('rejected'));
     </script>
   </body>
 </html>
