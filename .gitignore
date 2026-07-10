@@ -31,3 +31,6 @@ CLAUDE.md
 # Local Pi runtime state
 .atl/
 .pi/
+
+# CodeGraph local index (per-machine, regenerated)
+.codegraph/
